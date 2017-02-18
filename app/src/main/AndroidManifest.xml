@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="net.angrycode.wehub">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".WeCodeApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Launcher">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.component.WebViewActivity"
+            android:label="@string/title_activity_webview"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.activity.SearchActivity"
+            android:label=""
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.LanguagesActivity"
+            android:label="@string/language"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.FavoritesActivity"
+            android:label="@string/favorite"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.ThemeActivity"
+            android:label="@string/theme"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.AboutActivity"
+            android:label="@string/about"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

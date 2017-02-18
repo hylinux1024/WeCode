@@ -1,0 +1,105 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'org.greenrobot.greendao'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+    signingConfigs {
+        config {
+            storeFile file(KEY_STORE)
+            keyAlias KEY_ALIATS
+            keyPassword KEY_PASSWORD
+            storePassword KEY_PASSWORD
+        }
+        debug {
+            storeFile file(KEY_STORE)
+            keyAlias KEY_ALIATS
+            keyPassword KEY_PASSWORD
+            storePassword KEY_PASSWORD
+        }
+    }
+    defaultConfig {
+        applicationId "net.angrycode.wehub"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 2
+        versionName "1.0.2"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+            signingConfig signingConfigs.config
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def outputFile = output.outputFile
+            if (variant.buildType.name.equals('release')) {
+                //定义打包名称
+                def fileName = "app_v${defaultConfig.versionName}_${buildTime()}.apk"
+                output.outputFile = new File(outputFile.parent, fileName)
+            }
+
+
+        }
+    }
+
+}
+
+def buildTime() {
+    Date date = new Date();
+    return date.format("yyyyMMdd_HHmm", TimeZone.getDefault())
+}
+
+greendao {
+    schemaVersion 2
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    compile 'com.android.support:recyclerview-v7:25.0.1'
+    compile 'com.android.support:cardview-v7:25.0.1'
+    //design
+    compile 'com.android.support:design:25.0.1'
+    //custom tabs
+    compile 'com.android.support:customtabs:25.0.1'
+    compile project(':customtabs')
+
+    //编译RxJava
+    compile 'io.reactivex:rxjava:1.1.6'
+    //编译RxAndroid
+    compile 'io.reactivex:rxandroid:1.2.1'
+    //编译Retrofit及其相关库，包括Gson
+    compile 'com.squareup.okhttp3:okhttp:3.3.1'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
+    //view injector
+    compile 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    //glide
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    //TagGroup
+    compile 'me.gujun.android.taggroup:library:1.4@aar'
+    //EventBus
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'org.greenrobot:greendao:3.2.0'
+    //test stuff
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_gray">#607D8B</color>
+    <color name="primary_dark_gray">#455A64</color>
+    <color name="primary_light_gray">#607D8B</color>
+    <color name="accent_gray">#607D8B</color>
+    <color name="primary_text_gray">#212121</color>
+    <color name="secondary_text_gray">#757575</color>
+    <color name="icons_gray">#FFFFFF</color>
+    <color name="divider_gray">#BDBDBD</color>
+</resources>

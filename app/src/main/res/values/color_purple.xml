@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_purple">#673AB7</color>
+    <color name="primary_dark_purple">#512DA8</color>
+    <color name="primary_light_purple">#D1C4E9</color>
+    <color name="accent_purple">#E040FB</color>
+    <color name="primary_text_purple">#212121</color>
+    <color name="secondary_text_purple">#757575</color>
+    <color name="icons_purple">#FFFFFF</color>
+    <color name="divider_purple">#BDBDBD</color>
+</resources>

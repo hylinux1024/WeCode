@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_language"
+        android:icon="@mipmap/ic_menu_code"
+        android:title="@string/language" />
+    <item
+        android:id="@+id/nav_favorite"
+        android:icon="@mipmap/ic_menu_favorite"
+        android:title="@string/favorite" />
+    <item
+        android:id="@+id/nav_theme"
+        android:icon="@mipmap/ic_menu_theme"
+        android:title="@string/theme" />
+    <item
+        android:id="@+id/nav_about"
+        android:icon="@mipmap/ic_menu_about"
+        android:title="@string/about" />
+
+    <!--<item android:title="Communicate">-->
+    <!--<menu>-->
+    <!--<item-->
+    <!--android:id="@+id/nav_share"-->
+    <!--android:icon="@drawable/ic_menu_share"-->
+    <!--android:title="Share" />-->
+    <!--<item-->
+    <!--android:id="@+id/nav_send"-->
+    <!--android:icon="@drawable/ic_menu_send"-->
+    <!--android:title="Send" />-->
+    <!--</menu>-->
+    <!--</item>-->
+
+</menu>
